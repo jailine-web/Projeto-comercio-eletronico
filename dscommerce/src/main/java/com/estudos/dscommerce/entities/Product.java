@@ -28,7 +28,6 @@ public class Product {
 	
 	private String imgUrl;
 	
-	//Para não ter repetição dos pares de ids categoria + product utiliza-sem a estrutura set
 	private Set<Category> categories = new HashSet<>();
 
 	public Product() {
@@ -81,6 +80,10 @@ public class Product {
 
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
+	}
+
+	public Set<Category> getCategories() {
+		return categories;
 	}
 
 	@Override

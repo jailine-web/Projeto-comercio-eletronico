@@ -1,6 +1,8 @@
 package com.estudos.dscommerce.entities;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,6 +20,9 @@ public class Category {
 	
 	private String name;
 	
+	private Set<Product> products = new HashSet<>();
+	
+
 	public Category() {
 		
 	}
@@ -41,6 +46,10 @@ public class Category {
 	
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public Set<Product> getProducts() {
+		return products;
 	}
 	
 	@Override
