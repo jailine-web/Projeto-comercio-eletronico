@@ -26,13 +26,17 @@ public class Order {
 	private Instant moment;
 	
 	private OrderStatus status;
+	
+	@ManyToOne
+	//Nome da coluna onde ficará a chave estrangeira
+	@JoinColumn(name="client_id")
+	private User client;
 
 	public Order() {
-		super();
+
 	}
 
 	public Order(Long id, Instant moment, OrderStatus status) {
-		super();
 		this.id = id;
 		this.moment = moment;
 		this.status = status;
