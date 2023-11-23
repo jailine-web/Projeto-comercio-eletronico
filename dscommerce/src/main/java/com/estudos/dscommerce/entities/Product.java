@@ -1,6 +1,8 @@
 package com.estudos.dscommerce.entities;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -25,6 +27,9 @@ public class Product {
 	private Double price;
 	
 	private String imgUrl;
+	
+	//Para não ter repetição dos pares de ids categoria + product utiliza-sem a estrutura set
+	private Set<Category> categories = new HashSet<>();
 
 	public Product() {
 		
