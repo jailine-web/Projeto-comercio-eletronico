@@ -28,7 +28,6 @@ public class Order {
 	private OrderStatus status;
 	
 	@ManyToOne
-	//Nome da coluna onde ficará a chave estrangeira
 	@JoinColumn(name="client_id")
 	private User client;
 
