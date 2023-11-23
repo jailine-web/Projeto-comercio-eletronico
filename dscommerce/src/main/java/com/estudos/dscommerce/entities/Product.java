@@ -1,6 +1,7 @@
 package com.estudos.dscommerce.entities;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -102,6 +103,10 @@ public class Product {
 		return items;
 	}
 
+	public List<Order> getProducts(){
+		return items.stream().map(x -> x.getOrder()).toList();
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

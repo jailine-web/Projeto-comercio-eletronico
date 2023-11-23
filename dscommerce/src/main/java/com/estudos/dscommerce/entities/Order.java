@@ -2,6 +2,7 @@ package com.estudos.dscommerce.entities;
 
 import java.time.Instant;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -97,6 +98,12 @@ public class Order {
 
 	public Set<OrderItem> getItems() {
 		return items;
+	}
+	
+	/*Converte cada x(que é orderItem) em x.getProduct (referencias para os produtos), 
+	pegando assim, só o produto associado a ele. Construindo uma lista de produtos */
+	public List<Product> getProducts(){
+		return items.stream().map(x -> x.getProduct()).toList();
 	}
 
 	@Override
