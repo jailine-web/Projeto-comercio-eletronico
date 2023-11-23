@@ -35,7 +35,8 @@ public class Payment {
 
 	}
 
-	public Payment(Long id, Instant moment, OrderStatus status, Order order) {
+	public Payment(Long id, Instant moment, OrderStatus status, 
+			       Order order) {
 		this.id = id;
 		this.moment = moment;
 		this.status = status;
