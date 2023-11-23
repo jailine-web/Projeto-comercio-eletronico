@@ -4,7 +4,6 @@ import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
-//Classe que representa a chave primária composta 
 @Embeddable
 public class OrderItemPK {
 
