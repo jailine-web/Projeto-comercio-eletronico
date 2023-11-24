@@ -1,5 +1,6 @@
 package com.estudos.dscommerce.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -25,5 +26,11 @@ public class ProductService {
 		ProductDTO dto = new ProductDTO(product);
 		
 		return dto;
+	}
+	
+	@Transactional(readOnly = true)
+	public List<ProductDTO> findAll() {
+		List<Product> product = productRepository.findAll();
+		return product.stream().map(x -> new ProductDTO(x)).toList();
 	}
 }
