@@ -65,4 +65,10 @@ public class ProductService {
 	}
 	
 	
+	@Transactional
+	public void deleteProduct(Long id) {
+		productRepository.deleteById(id);
+		
+	}
+	
 }
