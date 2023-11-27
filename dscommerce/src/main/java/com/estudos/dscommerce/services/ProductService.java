@@ -1,8 +1,5 @@
 package com.estudos.dscommerce.services;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -11,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.estudos.dscommerce.dto.ProductDTO;
 import com.estudos.dscommerce.entities.Product;
 import com.estudos.dscommerce.repositories.ProductRepository;
+import com.estudos.dscommerce.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class ProductService {
@@ -23,8 +21,9 @@ public class ProductService {
 	
 	@Transactional(readOnly = true)
 	public ProductDTO findbyId(Long id) {
-		Optional<Product> result = productRepository.findById(id);
-		Product product = result.get();
+		
+		Product product = productRepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Recurso não encontrado"));
 		ProductDTO dto = new ProductDTO(product);
 		
 		return dto;
