@@ -59,7 +59,7 @@ INSERT INTO tb_product_category (product_id, category_id) VALUES (25, 3);
 INSERT INTO tb_users (name, email, phone, password, birth_date) VALUES ('Maria Brown', 'maria@gmail.com', '988888888', '$2a$12$/fR4B44CuHtbJuAeRaD29uRS.YdAztRZC3B2va3ox9hkq7cK69MUO', '2001-07-25');
 INSERT INTO tb_users (name, email, phone, password, birth_date) VALUES ('Alex Green', 'alex@gmail.com', '977777777', '$2a$12$/fR4B44CuHtbJuAeRaD29uRS.YdAztRZC3B2va3ox9hkq7cK69MUO', '1987-12-13');
 
-INSERT INTO tb_roles (authority) VALUES ('ROLE_OPERATOR');
+INSERT INTO tb_roles (authority) VALUES ('ROLE_CLIENT');
 INSERT INTO tb_roles (authority) VALUES ('ROLE_ADMIN');
 
 INSERT INTO tb_user_roles (user_id, roles_id) VALUES (1,1);
