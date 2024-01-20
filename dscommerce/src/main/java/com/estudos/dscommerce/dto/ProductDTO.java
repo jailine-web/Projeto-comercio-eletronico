@@ -3,6 +3,7 @@ package com.estudos.dscommerce.dto;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.antlr.v4.runtime.misc.NotNull;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.estudos.dscommerce.entities.Category;
@@ -24,11 +25,13 @@ public class ProductDTO {
 	@Size(min = 10, message = "A descrição deve ter no mínimo 10 caracteres")
 	private String description;
 
+	@jakarta.validation.constraints.NotNull(message = "Campo requirido")
 	@Positive(message = "O valor do preço deve ser positivo")
 	private Double price;
+	
 	private String imgUrl;
 
-	@NotEmpty(message = "Deve ter pelo menos uma categoria!")
+	@jakarta.validation.constraints.NotEmpty(message = "Deve ter pelo menos uma categoria!")
 	private List<CategoryDTO> categories = new ArrayList<>();
 
 	public ProductDTO(Long id, String name, String description, Double price, String imgUrl) {
