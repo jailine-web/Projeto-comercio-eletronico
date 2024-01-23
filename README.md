@@ -1,6 +1,6 @@
 ## Projeto back-end ecommerce 🧰🚧
 
-O projeto DScommerce é um modelo back-end de comercio eletrônico desenvolvido na linguagem Java/Spring.
+O projeto DScommerce é um modelo back-end de comércio eletrônico desenvolvido na linguagem Java/Spring.
 A codificação foi desenvolvida durante o curso Java Spring professional, ministrado pelo prof: Nelio Alves.
 
 
