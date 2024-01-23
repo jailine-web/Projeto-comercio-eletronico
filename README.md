@@ -14,16 +14,16 @@ para validações e organização do código.
 
 ## Tecnologias utilizadas 🛠️
 
-  ° Java
-  ° Framework Spring
-  ° SubFramework de ORM - JPA
-  ° SQL
+  *  Java
+  * Framework Spring
+  * SubFramework de ORM - JPA
+  * SQL
 
 ## Principais dependências 📥
 
-  ° Maven
-  ° JWT 
-  ° Oauth2
+  * Maven
+  * JWT 
+  * Oauth2
 
 
   
