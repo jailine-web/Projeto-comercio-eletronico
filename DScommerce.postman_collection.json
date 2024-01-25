@@ -90,30 +90,10 @@
 			]
 		},
 		{
-			"name": "Products",
+			"name": "Order",
 			"item": [
 				{
-					"name": "All products (public)",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{host}}/products",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"products"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Product by id (auth)",
+					"name": "order by id",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -135,13 +115,116 @@
 							"urlencoded": []
 						},
 						"url": {
-							"raw": "{{host}}/products/2",
+							"raw": "{{host}}/orders/3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"orders",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "new order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"items\": [\r\n        {\r\n            \"productId\": 1,\r\n            \"quantity\": 2\r\n        },\r\n        {\r\n            \"productId\": 5,\r\n            \"quantity\": 1\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/orders",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "All products (public)",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/products?size=12&page=0sort=name,desc&name=pc%20gamer",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "12"
+								},
+								{
+									"key": "page",
+									"value": "0sort=name,desc"
+								},
+								{
+									"key": "name",
+									"value": "pc%20gamer"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product by id (public)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/products/1",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"products",
-								"2"
+								"1"
 							]
 						}
 					},
@@ -164,7 +247,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Tablet\",\r\n    \"description\": \"descrição qq\",\r\n    \"price\": 45.0,\r\n    \"imgUrl\": \"imagem\"\r\n}",
+							"raw": "\r\n{\r\n    \"name\": \"Luminária\",\r\n    \"description\": \"descrição lu\",\r\n    \"imgUrl\": \"imagem\",\r\n    \"price\": \"120\",\r\n    \"categories\": [\r\n        {\r\n            \"id\":2\r\n        },\r\n        {\r\n            \"id\":3\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -184,7 +267,7 @@
 					"response": []
 				},
 				{
-					"name": "update product",
+					"name": "update product  (admin only)",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -200,7 +283,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Tablet\",\r\n    \"description\": \"descrição qq\",\r\n    \"price\": 45.0,\r\n    \"imgUrl\": \"imagem\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Tablet\",\r\n    \"description\": \"descrição qq\",\r\n    \"price\": 45.0,\r\n    \"imgUrl\": \"imagem\",\r\n    \"categories\": [\r\n        {\r\n            \"id\": 2\r\n        },\r\n        {\r\n            \"id\": 3\r\n        }\r\n        ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -208,20 +291,20 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/products/2",
+							"raw": "{{host}}/products/1",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"products",
-								"2"
+								"1"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "delete product",
+					"name": "delete product  (admin only)",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -252,6 +335,73 @@
 							"path": [
 								"products",
 								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User loged",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/me",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "get categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/categories",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"categories"
 							]
 						}
 					},
