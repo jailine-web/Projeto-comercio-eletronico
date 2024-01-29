@@ -10,23 +10,13 @@
     "description": "A description for 'security.client-secret'"
   },
   {
-    "name": "cors.origins",
-    "type": "java.lang.String",
-    "description": "A description for 'cors.origins'"
-  },
-  {
     "name": "security.jwt.duration",
     "type": "java.lang.String",
     "description": "A description for 'security.jwt.duration'"
   },
   {
-    "name": "security.client-id",
+    "name": "cors.origins",
     "type": "java.lang.String",
-    "description": "A description for 'security.client-id'"
-  },
-  {
-    "name": "security.client-id",
-    "type": "java.lang.String",
-    "description": "A description for 'security.client-id'"
+    "description": "A description for 'cors.origins'"
   }
 ]}
